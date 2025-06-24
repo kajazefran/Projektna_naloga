@@ -1,7 +1,7 @@
 import re
 
 def poisci(vzorec, vsebina):
-    """ Poišče vrednost v besedilu."""
+    """Poišče prvo ujemanje vzorca v besedilu. Če ni najdeno ali je neveljavno, vrne 'Ni podatka'."""
 
     najdba = re.search(vzorec, vsebina, re.DOTALL)
 
@@ -19,12 +19,15 @@ def pocisti_kraj(surovi_kraj):
     kraj = surovi_kraj.split(" - ")[0] # vzamemo samo del pred -
 
     vzorec = re.compile(
-        r'\b(off|en route|in|about|area|degrees|from|over|near|within|north|northern|eastern|south|east|west|location|km|m|mi|nautical|miles|mls|nm|nr|ca|stn|unk|unknown|W|S|N|E|NE|NW|SE|SW|ENE|ESE|SSE|SSW|WSW|WNW|NNW|NNE|LG)\b'
+        r'\b(off|en route|in|about|area|degrees|from|over|near|within|north|northern|'
+        r'eastern|south|east|west|location|km|m|mi|nautical|miles|mls|nm|nr|ca|stn|'
+        r'unk|unknown|W|S|N|E|NE|NW|SE|SW|ENE|ESE|SSE|SSW|WSW|WNW|NNW|NNE|LG)\b'
         r'|\d+'
         r'|\s*\(.*?\)'
         r'|^\s*of\s+'
         r'|[?]',
-        flags=re.IGNORECASE)
+        flags=re.IGNORECASE
+    )
 
     kraj = vzorec.sub("", kraj)        
     kraj = kraj.split(",")[0]           # odstrani po vejici
