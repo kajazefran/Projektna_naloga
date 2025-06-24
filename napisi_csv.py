@@ -1,6 +1,7 @@
 import csv
 
 def zapisi_rezultate_v_csv(seznam_podatkov, ime_csv):
+    """ S to funkcijo napišemo CSV datoteko."""
     if not seznam_podatkov:
         print("Ni podatkov za zapis.")
         return
