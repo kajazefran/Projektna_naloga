@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def poberi_html_za_vse_letalske_nesrece(od_leto=1919, do_leto=2024, mapa="nesrece"):
     """ S to funkcijo, se sprehodimo po straneh vseh let nesrec v ASN bazi, prenesemo
-    html za vsako letalsko nesreco posebej in jih shranimo v mapo: nesrece"""
+    HTML za vsako letalsko nesreco posebej in jih shranimo v mapo: nesrece"""
 
     pot_do_brskalnika = os.path.join(os.getcwd(), "msedgedriver.exe") # pot v isti mapi kot skripta
     storitev = Service(executable_path=pot_do_brskalnika)
@@ -21,7 +21,7 @@ def poberi_html_za_vse_letalske_nesrece(od_leto=1919, do_leto=2024, mapa="nesrec
     brskalnik = webdriver.Edge(service=storitev, options=moznosti)
     cakanje = WebDriverWait(brskalnik, 3)
 
-    os.makedirs(mapa, exist_ok=True) # ce mapa kamor bomo shranjevali htmlje se ne obstaja, jo ustvarimo
+    os.makedirs(mapa, exist_ok=True) # ce mapa kamor bomo shranjevali HTML-je še ne obstaja, jo ustvarimo
 
     zaporedna_stevilka_nesrec = 1
 
